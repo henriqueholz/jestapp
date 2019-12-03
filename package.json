@@ -1,36 +1,29 @@
 {
-  "name": "jestapp",
+  "name": "clean-node-api",
   "version": "1.0.0",
+  "description": "Construindo uma API Rest em NodeJS utilizando TDD, Clean Architecture e Design Patterns.",
+  "author": "Rodrigo Manguinho",
+  "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --silent --colors --noStackTrace --passWithNoTests",
+    "test:unit": "npm test -- --watch -c jest-unit-config.js",
+    "test:integration": "npm test -- --watch -c jest-integration-config.js",
+    "test:staged": "npm test -- --findRelatedTests",
+    "test:ci": "npm test -- --coverage"
   },
-  "lint-staged": {
-    "*.js": [
-      "standard --fix",
-      "git add"
+  "standard": {
+    "env": [
+      "jest"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/henriqueholz/jestapp.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/henriqueholz/jestapp/issues"
-  },
-  "homepage": "https://github.com/henriqueholz/jestapp#readme",
-  "description": "",
   "devDependencies": {
     "husky": "^4.0.0-beta.5",
     "jest": "^24.9.0",
-    "lint-staged": "^9.5.0",
+    "lint-staged": "^9.4.3",
     "standard": "^14.3.1"
+  },
+  "dependencies": {
+    "validator": "^12.1.0"
   }
 }
